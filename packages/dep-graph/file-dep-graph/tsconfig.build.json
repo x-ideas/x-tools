@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "module": "CommonJS",
+    "allowJs": true,
+    "esModuleInterop": true
+  }
+}
