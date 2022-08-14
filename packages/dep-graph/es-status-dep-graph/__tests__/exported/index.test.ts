@@ -44,7 +44,6 @@ describe('test getExportedInfos', () => {
         sourcePath: filePath,
         type: 'named',
       },
-
       {
         exported: 'ec',
         exportKind: 'value',
@@ -64,7 +63,6 @@ describe('test getExportedInfos', () => {
         sourcePath: filePath,
         type: 'default',
       },
-
       {
         exported: 'd',
         exportKind: 'value',
@@ -74,7 +72,6 @@ describe('test getExportedInfos', () => {
         sourcePath: filePath,
         type: 'named',
       },
-
       {
         exported: 'b',
         exportKind: 'value',
@@ -84,7 +81,6 @@ describe('test getExportedInfos', () => {
         sourcePath: filePath,
         type: 'named',
       },
-
       {
         exported: '',
         exportKind: 'value',
