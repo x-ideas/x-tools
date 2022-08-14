@@ -119,7 +119,7 @@ export interface ITokenExportedInfo {
    * 导出的名字
    * 如果是export {a as b}，则为b
    */
-  exported: string;
+  exported: string | 'default';
 
   /**
    * 处理token时的文件，不一定是token最终的来源文件

@@ -1,8 +1,8 @@
 import { ITokenExportedInfo } from '../../exported/types';
 import { ITokenImportedInfo } from '../../imported/types';
-import { isImportTokenContainExportToken } from '../../utils';
+import { isTokenUsedByImport } from '../../utils';
 
-describe('isImportTokenContainExportToken', () => {
+describe('isTokenUsedByImport', () => {
   describe('import i1 from "i"(default)--文件路径对的上', () => {
     const aImportInfo: ITokenImportedInfo = {
       type: 'Default',
@@ -25,9 +25,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'value',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        false
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(false);
     });
 
     it('export let e2', () => {
@@ -41,9 +39,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'value',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        false
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(false);
     });
 
     it('export { a as e3 }', () => {
@@ -57,9 +53,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'value',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        false
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(false);
     });
 
     it('export {e4}', () => {
@@ -73,9 +67,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'value',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        false
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(false);
     });
 
     it('export default e5', () => {
@@ -89,9 +81,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'value',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        true
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(true);
     });
 
     it('export {e6 as e6_1}', () => {
@@ -105,9 +95,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'value',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        false
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(false);
     });
 
     it('export {a as default}', () => {
@@ -121,9 +109,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'value',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        true
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(true);
     });
 
     it('export * from "a"', () => {
@@ -137,9 +123,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'value',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        false
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(false);
     });
 
     it('export * as e7 from "a"', () => {
@@ -153,9 +137,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'value',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        false
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(false);
     });
 
     it('export interface E1 {}', () => {
@@ -169,9 +151,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'type',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        false
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(false);
     });
 
     it('export type E2 = ""', () => {
@@ -185,9 +165,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'type',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        false
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(false);
     });
 
     it('export enum E3 {}', () => {
@@ -201,9 +179,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'type',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        false
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(false);
     });
   });
 
@@ -230,9 +206,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'value',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        false
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(false);
     });
 
     it('export let e2', () => {
@@ -246,9 +220,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'value',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        false
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(false);
     });
 
     it('export { a as e3 }', () => {
@@ -262,9 +234,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'value',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        false
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(false);
     });
 
     it('export {e4}', () => {
@@ -278,9 +248,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'value',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        false
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(false);
     });
 
     it('export default e5', () => {
@@ -294,9 +262,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'value',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        false
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(false);
     });
 
     it('export {e6 as e6_1}', () => {
@@ -310,9 +276,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'value',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        false
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(false);
     });
 
     it('export {a as default}', () => {
@@ -326,9 +290,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'value',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        false
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(false);
     });
 
     it('export * from "a"', () => {
@@ -342,9 +304,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'value',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        false
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(false);
     });
 
     it('export * as e7 from "a"', () => {
@@ -358,9 +318,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'value',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        false
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(false);
     });
 
     it('export interface E1 {}', () => {
@@ -374,9 +332,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'type',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        false
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(false);
     });
 
     it('export type E2 = ""', () => {
@@ -390,9 +346,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'type',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        false
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(false);
     });
 
     it('export enum E3 {}', () => {
@@ -406,9 +360,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'type',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        false
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(false);
     });
   });
 
@@ -434,9 +386,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'value',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        true
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(true);
     });
 
     it('export let e2', () => {
@@ -450,9 +400,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'value',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        true
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(true);
     });
 
     it('export { a as e3 }', () => {
@@ -466,9 +414,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'value',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        true
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(true);
     });
 
     it('export {e4}', () => {
@@ -482,9 +428,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'value',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        true
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(true);
     });
 
     it('export default e5', () => {
@@ -498,9 +442,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'value',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        false
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(false);
     });
 
     it('export {e6 as e6_1}', () => {
@@ -514,9 +456,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'value',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        true
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(true);
     });
 
     it('export {a as default}', () => {
@@ -530,9 +470,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'value',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        false
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(false);
     });
 
     it('export * from "a"', () => {
@@ -546,9 +484,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'value',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        true
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(true);
     });
 
     it('export * as e7 from "a"', () => {
@@ -562,9 +498,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'value',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        true
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(true);
     });
 
     it('export interface E1 {}', () => {
@@ -578,9 +512,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'type',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        true
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(true);
     });
 
     it('export type E2 = ""', () => {
@@ -594,9 +526,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'type',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        true
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(true);
     });
 
     it('export enum E3 {}', () => {
@@ -610,9 +540,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'type',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        true
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(true);
     });
   });
 
@@ -638,9 +566,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'value',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        false
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(false);
     });
 
     it('export let e2', () => {
@@ -654,9 +580,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'value',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        false
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(false);
     });
 
     it('export { a as e3 }', () => {
@@ -670,9 +594,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'value',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        false
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(false);
     });
 
     it('export {e4}', () => {
@@ -686,9 +608,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'value',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        false
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(false);
     });
 
     it('export {i4}', () => {
@@ -702,9 +622,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'value',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        true
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(true);
     });
 
     it('export default e5', () => {
@@ -718,9 +636,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'value',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        false
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(false);
     });
 
     it('export {e6 as e6_1}', () => {
@@ -734,9 +650,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'value',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        false
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(false);
     });
 
     it('export {a as default}', () => {
@@ -750,9 +664,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'value',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        false
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(false);
     });
 
     it('export * from "a"', () => {
@@ -766,9 +678,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'value',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        false
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(false);
     });
 
     it('export * as e7 from "a"', () => {
@@ -782,9 +692,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'value',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        false
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(false);
     });
 
     it('export interface E1 {}', () => {
@@ -798,9 +706,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'type',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        false
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(false);
     });
 
     it('export type E2 = ""', () => {
@@ -814,9 +720,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'type',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        false
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(false);
     });
 
     it('export enum E3 {}', () => {
@@ -830,9 +734,7 @@ describe('isImportTokenContainExportToken', () => {
         exportKind: 'type',
       };
 
-      expect(isImportTokenContainExportToken(aImportInfo, exportInfo)).toBe(
-        false
-      );
+      expect(isTokenUsedByImport(aImportInfo, exportInfo)).toBe(false);
     });
   });
 });

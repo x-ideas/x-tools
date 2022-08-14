@@ -1,5 +1,5 @@
-import { ITokenExportedInfo } from '../../exported/types';
-import { ITokenImportedInfo } from '../../imported/types';
+import { ITokenExportedInfo } from '../exported/types';
+import { ITokenImportedInfo } from '../imported/types';
 
 /**
  * A导入的信息中，是否含有B的exported Info
@@ -8,7 +8,7 @@ import { ITokenImportedInfo } from '../../imported/types';
  * @param {ITokenExportedInfo} exportedInfo
  * @returns {boolean}
  */
-export function isImportTokenContainExportToken(
+export function isTokenUsedByImport(
   aImportInfo: ITokenImportedInfo,
   bExportedInfo: ITokenExportedInfo
 ): boolean {
@@ -33,18 +33,4 @@ export function isImportTokenContainExportToken(
   }
 
   return false;
-}
-
-/**
- * 导入的importedInfo是否再次导出
- * @export
- * @param {ITokenExportedInfo} exportedInfo
- * @param {ITokenImportedInfo} importedInfo
- * @returns {boolean}
- */
-export function isImportTokenExportAgain(
-  exportedInfo: ITokenExportedInfo,
-  importedInfo: ITokenImportedInfo
-): boolean {
-  return true;
 }
