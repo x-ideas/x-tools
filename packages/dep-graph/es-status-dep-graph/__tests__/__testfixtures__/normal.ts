@@ -1,22 +1,30 @@
-// @ts-noCheck
+/* eslint-disable @typescript-eslint/no-empty-function */
+/* eslint-disable @typescript-eslint/no-empty-interface */
+export const a = '2';
+export let e1;
 
-export const a = "2";
+export function f1() {}
 
-const b = "3";
-export {b};
+export class ec {}
 
-export function f1() {
-  // nothing
-}
+let f2;
+export default f2;
 
-export default f1;
+const b = '3';
+const c = '4';
+export { c as d, b };
 
-const c = "4";
-export {c as d};
+export * from './resource';
+export * as e7 from 'alias-resource';
+export { omit } from 'lodash';
 
-import _ from "lodash";
-import * as React from "react";
-import {useState} from "react";
+export interface E1 {}
+export type E2 = '';
+export enum E3 {}
 
-import {Table as AntTable} from "antd";
-import {Dep} from "./dep.ts";
+import _ from 'lodash';
+import * as React from 'react';
+import { useState } from 'react';
+
+import { Table as AntTable } from 'antd';
+import { Dep } from './dep.ts';

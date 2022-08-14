@@ -10,6 +10,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@x-tools/file-dep-graph": "workspace:*"
+    "@babel/generator": "^7.18.12",
+    "@x-tools/file-dep-graph": "workspace:*",
+    "filing-cabinet": "^3.3.0"
+  },
+  "devDependencies": {
+    "@types/filing-cabinet": "^2.5.1",
+    "lodash": "^4.17.21"
   }
 }

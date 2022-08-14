@@ -1,20 +1,57 @@
-import {ParseResult} from "@babel/parser";
-import traverse from "@babel/traverse";
-import {IExportedInfo} from "./types";
-import {getExportedVisitors} from "./visitors";
+import { parse, ParseResult } from '@babel/parser';
+import traverse from '@babel/traverse';
+
+import fs from 'fs';
+import xmadge from '@x-tools/file-dep-graph';
+
+import { IExportedInfo } from './types';
+import { getExportedVisitors } from './visitors';
 
 /**
- * 找到所有导出的信息
+ * 找到文件的export的信息
  * @export
- * @param {ParseResult<babel.types.File>} ast
+ * @param {string} filePath
  * @returns {IExportedInfo[]}
+ * 
+ * 处理的export调用为
+ * @example
+ *  export const e1 = '';
+    export let e2;
+
+    let e4;
+    export {
+      a as e3,
+      e4
+    }
+    export default e5;
+
+    export {e5, default} from 'a';
+    export {e6 as e6_1} from 'a';
+    export * from 'a';
+    export * as e7 from 'a'
+
+    export interface E1 {};
+    export type E2 = ''
+    export enum E3 {}
  */
-export function findExportedInfos(
-  ast: ParseResult<babel.types.File>
+export function findExportedInfoByFile(
+  filePath: string,
+  config: xmadge.MadgeConfig
 ): IExportedInfo[] {
+  const content = fs.readFileSync(filePath, {
+    encoding: 'utf8',
+  });
+  const ast = parse(content, {
+    sourceType: 'module',
+    plugins: ['typescript'],
+  });
+
   const result: IExportedInfo[] = [];
   traverse(ast, {
-    ...getExportedVisitors(result),
+    ...getExportedVisitors(result, {
+      filePath: filePath,
+      ...config,
+    }),
   });
 
   return result;

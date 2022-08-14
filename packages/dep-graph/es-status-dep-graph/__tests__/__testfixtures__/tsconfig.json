@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "module": "CommonJS",
+    "allowJs": true,
+    "esModuleInterop": true,
+    "baseUrl": "./",
+    "paths": {
+      "alias-resource": ["./resource.ts"]
+    }
+  }
+}
