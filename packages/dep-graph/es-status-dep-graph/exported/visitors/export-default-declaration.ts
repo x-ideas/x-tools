@@ -1,12 +1,12 @@
 import { Node, Visitor } from '@babel/traverse';
 import generator from '@babel/generator';
-import { IExportedInfo, IExportedVisitorOpt } from '../types';
+import { ITokenExportedInfo, IExportedVisitorOpt } from '../types';
 
 /**
  * export default a;
  */
 export function getExportDefaultVisitor(
-  result: IExportedInfo[],
+  result: ITokenExportedInfo[],
   opt: IExportedVisitorOpt
 ): Visitor<Node> {
   return {

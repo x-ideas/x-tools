@@ -1,20 +1,20 @@
 import path from 'path';
 import { findExportedInfoByFile } from '../../exported';
-import { IExportedInfo } from '../../exported/types';
+import { ITokenExportedInfo } from '../../exported/types';
 
 describe('test getExportedInfos', () => {
   it('normal ', async () => {
     const filePath = path.resolve(__dirname, '../__testfixtures__/normal.ts');
 
     // 寻找
-    const result: IExportedInfo[] = findExportedInfoByFile(filePath, {
+    const result: ITokenExportedInfo[] = findExportedInfoByFile(filePath, {
       tsConfig: path.resolve(__dirname, '../__testfixtures__/tsconfig.json'),
     });
 
     const lodashPath = require.resolve('lodash');
 
     expect(result.length).toBe(13);
-    expect(result).toEqual<IExportedInfo[]>([
+    expect(result).toEqual<ITokenExportedInfo[]>([
       {
         exported: 'a',
         exportKind: 'value',
@@ -82,11 +82,11 @@ describe('test getExportedInfos', () => {
         type: 'named',
       },
       {
-        exported: '',
+        exported: undefined,
         exportKind: 'value',
         express: "export * from './resource';",
         filePath: filePath,
-        local: '',
+        local: undefined,
         // 相对路径
         sourcePath: path.resolve(path.dirname(filePath), 'resource.ts'),
         type: 'all',

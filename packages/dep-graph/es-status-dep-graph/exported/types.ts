@@ -102,7 +102,7 @@ export interface IExportedAllInfo {
     export type E2 = ''
     export enum E3 {}
  */
-export interface IExportedInfo {
+export interface ITokenExportedInfo {
   /**
    * name为： export const a = ''
    * default为： export default A
@@ -120,6 +120,7 @@ export interface IExportedInfo {
    * 如果是export {a as b}，则为b
    */
   exported: string;
+
   /**
    * 处理token时的文件，不一定是token最终的来源文件
    */

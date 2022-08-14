@@ -1,21 +1,41 @@
-import {ParseResult} from "@babel/parser";
-import traverse from "@babel/traverse";
-import {getImportedVisitors} from "./visitors";
-import {IImportedInfo} from "./types";
+import traverse from '@babel/traverse';
+import { parse } from '@babel/parser';
+
+import fs from 'fs';
+
+import { getImportedVisitors } from './visitors';
+import { ITokenImportedInfo } from './types';
+import xmadge from '@x-tools/file-dep-graph';
 
 /**
- * 获得所有import的信息
+ * 获得文件的import的信息
+ * import i1 from 'i';
+ * import * as i2 from 'i'
+ * import {i3 as i31} from 'i';
+ * import {i4} from 'i';
+ * import type {i5} from 'i'
  * @export
- * @param {ParseResult<babel.types.File>} ast
- * @returns {IImportedInfo[]}
+ * @param {string} filePath
+ * @returns {ITokenImportedInfo[]}
  */
-export function findImportedInfos(
-  ast: ParseResult<babel.types.File>
-): IImportedInfo[] {
-  const result: IImportedInfo[] = [];
+export function findImportedInfoByFile(
+  filePath: string,
+  config: xmadge.MadgeConfig
+): ITokenImportedInfo[] {
+  const content = fs.readFileSync(filePath, {
+    encoding: 'utf8',
+  });
+  const ast = parse(content, {
+    sourceType: 'module',
+    plugins: ['typescript'],
+  });
 
+  const result: ITokenImportedInfo[] = [];
   traverse(ast, {
-    ...getImportedVisitors(result),
+    ...getImportedVisitors(result, {
+      filePath: filePath,
+      ...config,
+    }),
   });
 
   return result;

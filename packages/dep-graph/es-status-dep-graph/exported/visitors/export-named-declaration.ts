@@ -1,13 +1,13 @@
 import { Node, Visitor } from '@babel/traverse';
 import generator from '@babel/generator';
 import cabinet from 'filing-cabinet';
-import { IExportedInfo, IExportedVisitorOpt } from '../types';
+import { ITokenExportedInfo, IExportedVisitorOpt } from '../types';
 
 /**
  * export const a = 1;
  */
 export function getExportNamedVisitor(
-  result: IExportedInfo[],
+  result: ITokenExportedInfo[],
   opt: IExportedVisitorOpt
 ): Visitor<Node> {
   return {

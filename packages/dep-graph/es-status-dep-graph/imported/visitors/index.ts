@@ -1,10 +1,13 @@
-import {IImportedInfo} from "./../types";
+import { ITokenImportedInfo, IImportedVisitorOpt } from './../types';
 
-import {getImportVisitor} from "./import-declaration";
-import {Node, Visitor} from "@babel/traverse";
+import { getImportVisitor } from './import-declaration';
+import { Node, Visitor } from '@babel/traverse';
 
-export function getImportedVisitors(result: IImportedInfo[]): Visitor<Node> {
+export function getImportedVisitors(
+  result: ITokenImportedInfo[],
+  opt: IImportedVisitorOpt
+): Visitor<Node> {
   return {
-    ...getImportVisitor(result),
+    ...getImportVisitor(result, opt),
   };
 }

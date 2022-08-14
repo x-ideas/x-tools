@@ -4,14 +4,14 @@ import traverse from '@babel/traverse';
 import fs from 'fs';
 import xmadge from '@x-tools/file-dep-graph';
 
-import { IExportedInfo } from './types';
+import { ITokenExportedInfo } from './types';
 import { getExportedVisitors } from './visitors';
 
 /**
  * 找到文件的export的信息
  * @export
  * @param {string} filePath
- * @returns {IExportedInfo[]}
+ * @returns {ITokenExportedInfo[]}
  * 
  * 处理的export调用为
  * @example
@@ -37,7 +37,7 @@ import { getExportedVisitors } from './visitors';
 export function findExportedInfoByFile(
   filePath: string,
   config: xmadge.MadgeConfig
-): IExportedInfo[] {
+): ITokenExportedInfo[] {
   const content = fs.readFileSync(filePath, {
     encoding: 'utf8',
   });
@@ -46,7 +46,7 @@ export function findExportedInfoByFile(
     plugins: ['typescript'],
   });
 
-  const result: IExportedInfo[] = [];
+  const result: ITokenExportedInfo[] = [];
   traverse(ast, {
     ...getExportedVisitors(result, {
       filePath: filePath,

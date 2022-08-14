@@ -2,7 +2,7 @@ import { parse } from '@babel/parser';
 import path from 'path';
 import fs from 'fs';
 import { findImportedInfoByFile } from '../../imported';
-import { IImportedInfo } from '../../imported/types';
+import { ITokenImportedInfo } from '../../imported/types';
 
 describe('test getImportedInfos', () => {
   it('normal', () => {
@@ -10,13 +10,13 @@ describe('test getImportedInfos', () => {
 
     const reourcePath = path.resolve(path.dirname(filePath), './resource.ts');
 
-    const result: IImportedInfo[] = findImportedInfoByFile(filePath, {
+    const result: ITokenImportedInfo[] = findImportedInfoByFile(filePath, {
       tsConfig: path.resolve(__dirname, '../__testfixtures__/tsconfig.json'),
     });
 
     expect(result.length).toBe(7);
 
-    expect(result).toEqual<IImportedInfo[]>([
+    expect(result).toEqual<ITokenImportedInfo[]>([
       {
         express: "import i1 from './resource';",
         filePath: filePath,
