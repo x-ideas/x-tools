@@ -1,3 +1,3 @@
-import madge from "madge";
+import xmadge from 'madge';
 
-export default madge;
+export default xmadge;
