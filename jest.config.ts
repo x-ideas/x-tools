@@ -2,8 +2,15 @@
  * For a detailed explanation regarding each configuration property and type check, visit:
  * https://jestjs.io/docs/configuration
  */
+import type { Config } from 'jest';
 
-export default {
+const config: Config = {
+  projects: [
+    {
+      displayName: 'dep-graph',
+      testMatch: ['<rootDir>/packages/dep-graph/**/*.test.ts'],
+    },
+  ],
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
@@ -42,7 +49,14 @@ export default {
   // ],
 
   // An object that configures minimum threshold enforcement for coverage results
-  // coverageThreshold: undefined,
+  coverageThreshold: {
+    global: {
+      branches: 80,
+      functions: 80,
+      lines: 80,
+      statements: 80,
+    },
+  },
 
   // A path to a custom dependency extractor
   // dependencyExtractor: undefined,
@@ -192,5 +206,6 @@ export default {
   // watchPathIgnorePatterns: [],
 
   // Whether to use watchman for file crawling
-  // watchman: true,
+  watchman: true,
 };
+export default config;

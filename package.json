@@ -4,7 +4,7 @@
   "description": "some helpfull tools",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -37,5 +37,8 @@
     "ts-jest": "^28.0.7",
     "ts-node": "^10.9.1",
     "typescript": "^4.3"
+  },
+  "dependencies": {
+    "@babel/preset-typescript": "^7.18.6"
   }
 }

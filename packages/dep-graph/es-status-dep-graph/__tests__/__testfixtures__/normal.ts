@@ -12,7 +12,13 @@ export function f1() {}
 export class ec {}
 
 let f2;
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 export default f2;
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+export default {};
 
 const b = '3';
 const c = '4';

@@ -35,11 +35,12 @@ export function getExportDefaultVisitor(
        */
       if (nodePath.node.declaration.type === 'ObjectExpression') {
         result.push({
-          local: 'default',
+          local: undefined,
           type: 'default',
           exported: 'default',
           filePath: opt.filePath,
           sourcePath: opt.filePath,
+          exportKind: 'value',
           express: generator(nodePath.node, {
             comments: false,
           }).code,

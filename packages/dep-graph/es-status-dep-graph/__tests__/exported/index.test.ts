@@ -13,7 +13,7 @@ describe('test getExportedInfos', () => {
 
     const lodashPath = require.resolve('lodash');
 
-    expect(result.length).toBe(13);
+    expect(result.length).toBe(14);
     expect(result).toEqual<ITokenExportedInfo[]>([
       {
         exported: 'a',
@@ -60,6 +60,15 @@ describe('test getExportedInfos', () => {
         express: 'export default f2;',
         filePath: filePath,
         local: 'f2',
+        sourcePath: filePath,
+        type: 'default',
+      },
+      {
+        exported: 'default',
+        exportKind: 'value',
+        express: 'export default {};',
+        filePath: filePath,
+        local: undefined,
         sourcePath: filePath,
         type: 'default',
       },

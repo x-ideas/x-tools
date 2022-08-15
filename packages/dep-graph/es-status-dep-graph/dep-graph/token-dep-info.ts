@@ -17,7 +17,6 @@ export function collectTokenDepInfos(
   const result: IFileTokenDepInfo = {};
 
   Object.keys(depGraph).forEach(path => {
-    console.log(path);
     const importedTokens = findImportedInfoByFile(
       path,
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
