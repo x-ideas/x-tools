@@ -1,0 +1,155 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`token-dep-info circular dep 1`] = `
+Object {
+  "packages/dep-graph/es-status-dep-graph/__tests__/__testfixtures__/demo-proj/dep-a.ts": Array [
+    Object {
+      "exportKind": "value",
+      "exported": "depA",
+      "express": "export const depA = '';",
+      "filePath": "packages/dep-graph/es-status-dep-graph/__tests__/__testfixtures__/demo-proj/dep-a.ts",
+      "local": "depA",
+      "sourcePath": "packages/dep-graph/es-status-dep-graph/__tests__/__testfixtures__/demo-proj/dep-a.ts",
+      "type": "named",
+    },
+  ],
+  "packages/dep-graph/es-status-dep-graph/__tests__/__testfixtures__/demo-proj/dep-b.ts": Array [
+    Object {
+      "express": "import _ from 'lodash';",
+      "filePath": "packages/dep-graph/es-status-dep-graph/__tests__/__testfixtures__/demo-proj/dep-b.ts",
+      "importKind": "value",
+      "imported": "default",
+      "local": "_",
+      "sourcePath": "/Users/xjx/Documents/programs/myself/x-tools/node_modules/.pnpm/lodash@4.17.21/node_modules/lodash/lodash.js",
+      "type": "Default",
+    },
+    Object {
+      "express": "import { TDepC } from './dep-c';",
+      "filePath": "packages/dep-graph/es-status-dep-graph/__tests__/__testfixtures__/demo-proj/dep-b.ts",
+      "importKind": "value",
+      "imported": "TDepC",
+      "local": "TDepC",
+      "sourcePath": "/Users/xjx/Documents/programs/myself/x-tools/packages/dep-graph/es-status-dep-graph/__tests__/__testfixtures__/demo-proj/dep-c.ts",
+      "type": "Named",
+    },
+    Object {
+      "exportKind": "type",
+      "exported": "IDepB",
+      "express": "export interface IDepB {
+  name: TDepC;
+}",
+      "filePath": "packages/dep-graph/es-status-dep-graph/__tests__/__testfixtures__/demo-proj/dep-b.ts",
+      "local": "IDepB",
+      "sourcePath": "packages/dep-graph/es-status-dep-graph/__tests__/__testfixtures__/demo-proj/dep-b.ts",
+      "type": "named",
+    },
+    Object {
+      "exportKind": "value",
+      "exported": "omit",
+      "express": "export const omit = _.omit;",
+      "filePath": "packages/dep-graph/es-status-dep-graph/__tests__/__testfixtures__/demo-proj/dep-b.ts",
+      "local": "omit",
+      "sourcePath": "packages/dep-graph/es-status-dep-graph/__tests__/__testfixtures__/demo-proj/dep-b.ts",
+      "type": "named",
+    },
+  ],
+  "packages/dep-graph/es-status-dep-graph/__tests__/__testfixtures__/demo-proj/dep-c.ts": Array [
+    Object {
+      "express": "import { Hello } from 'dep-d';",
+      "filePath": "packages/dep-graph/es-status-dep-graph/__tests__/__testfixtures__/demo-proj/dep-c.ts",
+      "importKind": "value",
+      "imported": "Hello",
+      "local": "Hello",
+      "sourcePath": "/Users/xjx/Documents/programs/myself/x-tools/packages/dep-graph/es-status-dep-graph/__tests__/__testfixtures__/demo-proj/dep-d.ts",
+      "type": "Named",
+    },
+    Object {
+      "exportKind": "type",
+      "exported": "TDepC",
+      "express": "export type TDepC = string;",
+      "filePath": "packages/dep-graph/es-status-dep-graph/__tests__/__testfixtures__/demo-proj/dep-c.ts",
+      "local": "TDepC",
+      "sourcePath": "packages/dep-graph/es-status-dep-graph/__tests__/__testfixtures__/demo-proj/dep-c.ts",
+      "type": "named",
+    },
+  ],
+  "packages/dep-graph/es-status-dep-graph/__tests__/__testfixtures__/demo-proj/dep-d.ts": Array [
+    Object {
+      "express": "import { omit } from 'dep-b';",
+      "filePath": "packages/dep-graph/es-status-dep-graph/__tests__/__testfixtures__/demo-proj/dep-d.ts",
+      "importKind": "value",
+      "imported": "omit",
+      "local": "omit",
+      "sourcePath": "/Users/xjx/Documents/programs/myself/x-tools/packages/dep-graph/es-status-dep-graph/__tests__/__testfixtures__/demo-proj/dep-b.ts",
+      "type": "Named",
+    },
+    Object {
+      "exportKind": "value",
+      "exported": "DepD",
+      "express": "export const DepD = 'DepD';",
+      "filePath": "packages/dep-graph/es-status-dep-graph/__tests__/__testfixtures__/demo-proj/dep-d.ts",
+      "local": "DepD",
+      "sourcePath": "packages/dep-graph/es-status-dep-graph/__tests__/__testfixtures__/demo-proj/dep-d.ts",
+      "type": "named",
+    },
+    Object {
+      "exportKind": "value",
+      "exported": "ETarget",
+      "express": "export enum ETarget {}",
+      "filePath": "packages/dep-graph/es-status-dep-graph/__tests__/__testfixtures__/demo-proj/dep-d.ts",
+      "local": "ETarget",
+      "sourcePath": "packages/dep-graph/es-status-dep-graph/__tests__/__testfixtures__/demo-proj/dep-d.ts",
+      "type": "named",
+    },
+    Object {
+      "exportKind": "value",
+      "exported": "Hello",
+      "express": "export function Hello(): string {
+  return 'Hello';
+}",
+      "filePath": "packages/dep-graph/es-status-dep-graph/__tests__/__testfixtures__/demo-proj/dep-d.ts",
+      "local": "Hello",
+      "sourcePath": "packages/dep-graph/es-status-dep-graph/__tests__/__testfixtures__/demo-proj/dep-d.ts",
+      "type": "named",
+    },
+  ],
+  "packages/dep-graph/es-status-dep-graph/__tests__/__testfixtures__/demo-proj/index.ts": Array [
+    Object {
+      "express": "import * as A from './dep-a';",
+      "filePath": "packages/dep-graph/es-status-dep-graph/__tests__/__testfixtures__/demo-proj/index.ts",
+      "importKind": "value",
+      "imported": undefined,
+      "local": "A",
+      "sourcePath": "/Users/xjx/Documents/programs/myself/x-tools/packages/dep-graph/es-status-dep-graph/__tests__/__testfixtures__/demo-proj/dep-a.ts",
+      "type": "Namespaces",
+    },
+    Object {
+      "express": "import { omit } from './dep-b';",
+      "filePath": "packages/dep-graph/es-status-dep-graph/__tests__/__testfixtures__/demo-proj/index.ts",
+      "importKind": "value",
+      "imported": "omit",
+      "local": "omit",
+      "sourcePath": "/Users/xjx/Documents/programs/myself/x-tools/packages/dep-graph/es-status-dep-graph/__tests__/__testfixtures__/demo-proj/dep-b.ts",
+      "type": "Named",
+    },
+    Object {
+      "express": "import run from './dep-c';",
+      "filePath": "packages/dep-graph/es-status-dep-graph/__tests__/__testfixtures__/demo-proj/index.ts",
+      "importKind": "value",
+      "imported": "default",
+      "local": "run",
+      "sourcePath": "/Users/xjx/Documents/programs/myself/x-tools/packages/dep-graph/es-status-dep-graph/__tests__/__testfixtures__/demo-proj/dep-c.ts",
+      "type": "Default",
+    },
+    Object {
+      "express": "import { Hello } from './dep-d';",
+      "filePath": "packages/dep-graph/es-status-dep-graph/__tests__/__testfixtures__/demo-proj/index.ts",
+      "importKind": "value",
+      "imported": "Hello",
+      "local": "Hello",
+      "sourcePath": "/Users/xjx/Documents/programs/myself/x-tools/packages/dep-graph/es-status-dep-graph/__tests__/__testfixtures__/demo-proj/dep-d.ts",
+      "type": "Named",
+    },
+  ],
+}
+`;

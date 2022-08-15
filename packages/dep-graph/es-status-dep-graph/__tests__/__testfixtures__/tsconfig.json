@@ -6,7 +6,9 @@
     "esModuleInterop": true,
     "baseUrl": "./",
     "paths": {
-      "alias-resource": ["./resource.ts"]
+      "alias-resource": ["./resource.ts"],
+      "dep-d": ["./demo-proj/dep-d.ts"],
+      "dep-b": ["./demo-proj/dep-b.ts"]
     }
   }
 }
